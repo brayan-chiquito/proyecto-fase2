@@ -1,0 +1,17 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./bigqueryconsult/Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./bigqueryconsult/target:/app/target
+    command: java -jar /app/target/nombre-especifico.jar
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./bigqueryconsult-app/Dockerfile
+    ports:
+      - "9000:80"
